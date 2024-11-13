@@ -1,0 +1,95 @@
+{
+    "layer": "top", 
+    "position": "top",
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["pulseaudio", "network","backlight", "battery", "clock", "power-profiles-daemon"],
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+             "1": "1",
+             "2": "2",
+             "3": "3",
+             "4": "4",
+             "5": "5",
+             "6": "6",
+             "7": "7",
+             "8": "8",
+             "9": "9",
+             "0": "0",
+             "default": ""
+         }
+     },
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "clock": {
+        //"timezone": "Asia/Dubai",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d/%m/%Y}",
+        "format": "{:%H:%M}"
+    },
+
+    "backlight": {
+        //"device": "acpi_video1",
+        "format": "{icon}",
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "{signalStrength}%",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "No IP ",
+        "format-disconnected": "⚠",
+        "format-alt": "{ipaddr}/{cidr}"
+    }
+//    "power-profiles-daemon": {
+//      "format": "{icon}",
+//      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+//      "tooltip": true,
+//      "format-icons": {
+//        "default": "",
+//        "performance": "",
+//        "balanced": "",
+//        "power-saver": ""
+//      }
+//    }
+//    "custom/spotify": {
+//        "format": " {}",
+//        "on-click-right": "/var/lib/snapd/snap/bin/spotify",
+//        "return-type": "json",
+//        "on-click": "playerctl play-pause",
+//        "on-scroll-up": "playerctl next",
+//        "on-scroll-down": "playerctl previous" 
+//    }
+}
